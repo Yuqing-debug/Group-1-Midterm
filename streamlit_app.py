@@ -9,6 +9,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn import metrics
 
 st.set_page_config(page_title="Outstanding Debt Prediction",layout="centered")
+st.image("CreditScore.png", use_container_width=True)
 page = st.sidebar.selectbox("Select Page",["Introduction 📘","Visualization 📊","Prediction 🔮"])
 st.sidebar.title("Outstanding Debt Prediction")
 df = pd.read_csv("./Credit.csv")
