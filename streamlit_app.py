@@ -35,7 +35,7 @@ elif page == "Visualization 📊":
     st.subheader("Looker dashboard:")
     st.components.v1.iframe("https://lookerstudio.google.com/embed/reporting/1862255d-c299-4b3b-8ad4-f3294ab171d7/page/etzNF", height=480, width=800)
 
-    st.subheader("Heatmap:")
+    st.subheader("Correlation Matrix:")
     st.image("heatmap.png", use_container_width=True)
 
 
