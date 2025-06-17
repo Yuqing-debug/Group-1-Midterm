@@ -35,13 +35,13 @@ elif page == "Visualization 📊":
     st.components.v1.iframe("https://lookerstudio.google.com/embed/reporting/1862255d-c299-4b3b-8ad4-f3294ab171d7/page/etzNF", height=480, width=800)
 
     st.subheader("Correlation Matrix")
-        df_numeric = df.select_dtypes(include=np.number)
+    df_numeric = df.select_dtypes(include=np.number)
 
-        fig_corr, ax_corr = plt.subplots(figsize=(18,14))
+    fig_corr, ax_corr = plt.subplots(figsize=(18,14))
         # create the plot, in this case with seaborn 
-        sns.heatmap(df_numeric.corr(),annot=True,fmt=".2f",cmap='coolwarm')
+    sns.heatmap(df_numeric.corr(),annot=True,fmt=".2f",cmap='coolwarm')
         ## render the plot in streamlit 
-        st.pyplot(fig_corr)
+    st.pyplot(fig_corr)
 
 elif page == "Prediction 🔮":
     st.title("Prediction with Linear Regression")
