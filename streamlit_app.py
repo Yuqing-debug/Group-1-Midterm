@@ -38,7 +38,7 @@ elif page == "Visualization 📊":
     st.subheader("Heatmap:")
     corr = df.corr(numeric_only=True)
     sns.heatmap(corr, annot=True, cmap='coolwarm')
-
+    st.pyplot(fig_corr)
 elif page == "Prediction 🔮":
     st.title("Prediction with Linear Regression")
 
