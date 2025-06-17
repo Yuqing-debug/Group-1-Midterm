@@ -239,23 +239,24 @@ elif page == "Prediction 🔮":
     st.subheader("📩 Make a Prediction with Your Input")
 
     if st.button("Predict Outstanding Debt"):
-        # 自动构建输入数据，顺序和features_selection一致
-        input_values = []
-        for feature in features_selection:
-            if feature == "Changed_Credit_Limit":
-                input_values.append(input_limit)
-            elif feature == "Delay_from_due_date":
-                input_values.append(input_delay)
-            else:
-                input_values.append(0)  # 或者提示错误
+      # 自动构建输入数据，顺序和features_selection一致
+      input_values = []
+      for feature in features_selection:
+           if feature == "Changed_Credit_Limit":
+            input_values.append(input_limit)
+          elif feature == "Delay_from_due_date":
+            input_values.append(input_delay)
+          else:
+            input_values.append(0)  # 或者提示错误
 
-        input_df = pd.DataFrame([input_values], columns=features_selection)
+      input_df = pd.DataFrame([input_values], columns=features_selection)
 
-        try:
-            prediction = model.predict(input_df)
-            st.success(f"📊 Predicted Outstanding Debt: **{prediction[0]:.2f}**")
-        except Exception as e:
-            st.error(f"Prediction failed: {e}")
+      try:
+          prediction = model.predict(input_df)
+          st.success(f"📊 Predicted Outstanding Debt: **{prediction[0]:.2f}**")
+      except Exception as e:
+          st.error(f"Prediction failed: {e}")
+
 
     else:  
         st.info("To use the prediction input, please include both 'Changed_Credit_Limit' and 'Delay_from_due_date' in the feature selection.")
