@@ -242,12 +242,12 @@ elif page == "Prediction 🔮":
       # 自动构建输入数据，顺序和features_selection一致
       input_values = []
       for feature in features_selection:
-           if feature == "Changed_Credit_Limit":
-            input_values.append(input_limit)
-          elif feature == "Delay_from_due_date":
-            input_values.append(input_delay)
-          else:
-            input_values.append(0)  # 或者提示错误
+            if feature == "Changed_Credit_Limit":
+                input_values.append(input_limit)
+            elif feature == "Delay_from_due_date":
+                input_values.append(input_delay)
+            else:
+                input_values.append(0)  # 或者提示错误
 
       input_df = pd.DataFrame([input_values], columns=features_selection)
 
