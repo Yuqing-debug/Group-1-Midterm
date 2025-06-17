@@ -256,7 +256,7 @@ elif page == "Prediction 🔮":
 
 
     else:  
-        st.info("To use the prediction input, please include both 'Changed_Credit_Limit' and 'Delay_from_due_date' in the feature selection.")
+        st.info("To use the prediction input, please include both 'Changed_Credit_Limit' and 'Delay_from_due_date' sequentially in the feature selection.")
 
 
 
