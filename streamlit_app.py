@@ -37,7 +37,7 @@ elif page == "Visualization 📊":
 
 
 elif page == "Prediction 🔮":
-    st.title("04 Prediction with Linear Regression")
+    st.title("Prediction with Linear Regression")
 
     # ---------------------------------------------
     # Data Preprocessing
