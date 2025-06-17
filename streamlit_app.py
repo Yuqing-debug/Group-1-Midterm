@@ -172,9 +172,6 @@ elif page == "Prediction 🔮":
         df[col] = le.fit_transform(df[col])
 
 
-    # Show preview
-    st.write("Preview of Cleaned Dataset:")
-    st.dataframe(df.head())
 
     # Sidebar - Feature & Target selection
     st.sidebar.header("Feature & Target Selection")
@@ -237,15 +234,32 @@ elif page == "Prediction 🔮":
 
     else:
         st.warning("Please select at least one feature and a target variable from the sidebar.")
+    # 🔮 Simple Prediction Interface
+    st.markdown("---")
+    st.subheader("📩 Make a Prediction with Your Input")
+
+    if "Changed_Credit_Limit" in features_selection and "Delay_from_due_date" in features_selection:
+        st.markdown("---")
+        st.subheader("📩 Make a Prediction with Your Input")
+
+        input_limit = st.number_input("Changed Credit Limit", min_value=0.0, step=0.1, value=5.0)
+        input_delay = st.number_input("Delay from due date", min_value=0, step=1, value=3)
+
+        if st.button("Predict Outstanding Debt"):
+        # 只取与训练时一致的顺序和列名
+        input_df = pd.DataFrame([[input_limit, input_delay]], columns=["Changed_Credit_Limit", "Delay_from_due_date"])
+        
+            try:
+                prediction = model.predict(input_df)
+            st.success(f"📊 Predicted Outstanding Debt: **{prediction[0]:.2f}**")
+            except Exception as e:
+                st.error(f"Prediction failed: {e}")
+    else:
+        st.info("To use the prediction input, please include both 'Changed_Credit_Limit' and 'Delay_from_due_date' in the feature selection.")
 
 
 
 
-
-# Process the data
-
-
-# Modoel
 
 
 
