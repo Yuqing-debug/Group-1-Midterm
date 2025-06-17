@@ -235,11 +235,11 @@ elif page == "Prediction 🔮":
     else:
         st.warning("Please select at least one feature and a target variable from the sidebar.")
     # 🔮 Simple Prediction Interface
-    st.markdown("---")
+        st.subheader("📩 Make a Prediction with Your Input")
 
     if "Changed_Credit_Limit" in features_selection and "Delay_from_due_date" in features_selection:
         st.markdown("---")
-        st.subheader("📩 Make a Prediction with Your Input")
+        
 
         input_limit = st.number_input("Changed Credit Limit", min_value=0.0, step=0.1, value=5.0)
         input_delay = st.number_input("Delay from due date", min_value=0, step=1, value=3)
