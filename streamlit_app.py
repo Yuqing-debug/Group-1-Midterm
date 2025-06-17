@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import re
+import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
@@ -36,11 +37,8 @@ elif page == "Visualization 📊":
 
     st.subheader("Correlation Matrix")
     df_numeric = df.select_dtypes(include=np.number)
-
-    fig_corr, ax_corr = plt.subplots(figsize=(18,14))
-        # create the plot, in this case with seaborn 
+    fig_corr, ax_corr = plt.subplots(figsize=(18,14)) 
     sns.heatmap(df_numeric.corr(),annot=True,fmt=".2f",cmap='coolwarm')
-        ## render the plot in streamlit 
     st.pyplot(fig_corr)
 
 elif page == "Prediction 🔮":
