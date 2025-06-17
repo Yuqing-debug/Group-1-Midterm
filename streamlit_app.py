@@ -35,11 +35,9 @@ elif page == "Visualization 📊":
     st.subheader("Looker dashboard:")
     st.components.v1.iframe("https://lookerstudio.google.com/embed/reporting/1862255d-c299-4b3b-8ad4-f3294ab171d7/page/etzNF", height=480, width=800)
 
-    st.subheader("Correlation Matrix")
-    df_numeric = df.select_dtypes(include=np.number)
-    fig_corr, ax_corr = plt.subplots(figsize=(18,14)) 
-    sns.heatmap(df_numeric.corr(),annot=True,fmt=".2f",cmap='coolwarm')
-    st.pyplot(fig_corr)
+    st.subheader("Heatmap:")
+    corr = df.corr(numeric_only=True)
+    sns.heatmap(corr, annot=True, cmap='coolwarm')
 
 elif page == "Prediction 🔮":
     st.title("Prediction with Linear Regression")
