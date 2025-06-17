@@ -238,26 +238,26 @@ elif page == "Prediction 🔮":
     st.markdown("---")
     st.subheader("📩 Make a Prediction with Your Input")
 
-    if "Changed_Credit_Limit" in features_selection and "Delay_from_due_date" in features_selection:
-        st.markdown("---")
+    if st.button("Predict Outstanding Debt"):
+    # 读取顺序一致的输入值列表
+        input_values = []
+        for feature in features_selection:
+            if feature == "Changed_Credit_Limit":
+                input_values.append(input_limit)
+            elif feature == "Delay_from_due_date":
+                input_values.append(input_delay)
 
+        # 构建 DataFrame，列顺序与训练时保持一致
+        input_df = pd.DataFrame([input_values], columns=features_selection)
 
-        input_limit = st.number_input("Changed Credit Limit", min_value=0.0, step=0.1, value=5.0)
-        input_delay = st.number_input("Delay from due date", min_value=0, step=1, value=3)
+        try:
+            prediction = model.predict(input_df)
+            st.success(f"📊 Predicted Outstanding Debt: **{prediction[0]:.2f}**")
+        except Exception as e:
+            st.error(f"Prediction failed: {e}")
 
-        if st.button("Predict Outstanding Debt"):
-        # 只取与训练时一致的顺序和列名
-            input_df = pd.DataFrame([[input_limit, input_delay]], columns=["Changed_Credit_Limit", "Delay_from_due_date"])
-        
-            try:
-                prediction = model.predict(input_df)
-                st.success(f"📊 Predicted Outstanding Debt: **{prediction[0]:.2f}**")
-            except Exception as e:
-                st.error(f"Prediction failed: {e}")
-    else:
+    else:  
         st.info("To use the prediction input, please include both 'Changed_Credit_Limit' and 'Delay_from_due_date' in the feature selection.")
-
-
 
 
 
