@@ -248,13 +248,11 @@ elif page == "Prediction 🔮":
         if st.button("Predict Outstanding Debt"):
         # 只取与训练时一致的顺序和列名
             input_df = pd.DataFrame([[input_limit, input_delay]], columns=["Changed_Credit_Limit", "Delay_from_due_date"])
-        
-
-          try:
-              prediction = model.predict(input_df)
-              st.success(f"📊 Predicted Outstanding Debt: **{prediction[0]:.2f}**")
-          except Exception as e:
-              st.error(f"Prediction failed: {e}")
+            try:
+                prediction = model.predict(input_df)
+                st.success(f"📊 Predicted Outstanding Debt: **{prediction[0]:.2f}**")
+            except Exception as e:
+                st.error(f"Prediction failed: {e}")
 
 
     else:  
