@@ -36,9 +36,10 @@ elif page == "Visualization 📊":
     st.components.v1.iframe("https://lookerstudio.google.com/embed/reporting/1862255d-c299-4b3b-8ad4-f3294ab171d7/page/etzNF", height=480, width=800)
 
     st.subheader("Heatmap:")
-    corr = df.corr(numeric_only=True)
-    sns.heatmap(corr, annot=True, cmap='coolwarm')
-    st.pyplot(fig_corr)
+    st.image("heatmap.png", use_container_width=True)
+
+
+
 elif page == "Prediction 🔮":
     st.title("Prediction with Linear Regression")
 
