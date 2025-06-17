@@ -251,7 +251,7 @@ elif page == "Prediction 🔮":
         
             try:
                 prediction = model.predict(input_df)
-            st.success(f"📊 Predicted Outstanding Debt: **{prediction[0]:.2f}**")
+                st.success(f"📊 Predicted Outstanding Debt: **{prediction[0]:.2f}**")
             except Exception as e:
                 st.error(f"Prediction failed: {e}")
     else:
