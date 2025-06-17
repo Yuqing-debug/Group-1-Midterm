@@ -15,7 +15,7 @@ df = pd.read_csv("./Credit.csv")
 
 if page == "Introduction 📘":
     st.title("💰Outstanding Debt Prediction")
-    st.markdown("This app is used to explore the influencing factors of finance in society to predict the credit utilization rate of customers. We use datasets spanning a large range and eventually establish a regression model to estimate the relationship between variables such as income, age and occupation and credit utilization.")
+    st.markdown("This app is used to explore the influencing factors of finance in society to predict the outstanding debt of customers. We use datasets spanning a large range and eventually establish a regression model to estimate the relationship among delay from due date, change in credit and outstanding debt.")
     # df = pd.read_csv("Credit.csv")
     st.subheader(" Data Preview")
     st.dataframe(df.head(5))
